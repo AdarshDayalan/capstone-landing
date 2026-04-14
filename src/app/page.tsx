@@ -55,6 +55,7 @@ const PORTFOLIO = [
     location: "Wonder Lake, IL",
     result: "Live site in 3 days — referrals already coming in",
     url: "https://robertsexteriorservices.com",
+    image: "/portfolio/roberts.jpg",
   },
   {
     name: "Raudel Serna Plumbing",
@@ -62,6 +63,7 @@ const PORTFOLIO = [
     location: "Lake County, IL",
     result: "Google Business optimized — calls up 40%",
     url: "https://raudel-serna-plumbing.vercel.app",
+    image: "/portfolio/raudel.jpg",
   },
 ];
 
@@ -123,7 +125,7 @@ export default function LandingPage() {
               <ArrowRight size={18} />
             </a>
             <a
-              href="tel:+10000000000"
+              href="tel:+12242146191"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 transition-colors hover:bg-white/5"
               style={{
                 fontSize: 14,
@@ -351,32 +353,46 @@ export default function LandingPage() {
           >
             Recent client wins
           </h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {PORTFOLIO.map((p) => (
-              <div
+              <a
                 key={p.name}
-                className="card-lift flex items-start gap-4 rounded-2xl border p-5"
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-lift block overflow-hidden rounded-2xl border"
                 style={{
                   backgroundColor: "var(--brand-cream)",
                   borderColor: "var(--brand-sand)",
+                  textDecoration: "none",
                 }}
               >
+                {/* Screenshot */}
                 <div
-                  className="flex shrink-0 items-center justify-center"
                   style={{
-                    width: 44,
-                    height: 44,
-                    borderRadius: 10,
-                    backgroundColor: "var(--brand-ink)",
+                    position: "relative",
+                    overflow: "hidden",
+                    aspectRatio: "16 / 10",
                   }}
                 >
-                  <Globe size={20} color="rgba(255,253,248,0.4)" />
+                  <img
+                    src={p.image}
+                    alt={`${p.name} website screenshot`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "top",
+                      display: "block",
+                    }}
+                  />
                 </div>
-                <div>
-                  <h3 style={{ fontSize: 15, fontWeight: 600, color: "var(--brand-charcoal)" }}>
+                {/* Details */}
+                <div style={{ padding: "20px 22px" }}>
+                  <h3 style={{ fontSize: 16, fontWeight: 600, color: "var(--brand-charcoal)" }}>
                     {p.name}
                   </h3>
-                  <p style={{ fontSize: 12, color: "var(--brand-stone)", marginTop: 1 }}>
+                  <p style={{ fontSize: 12, color: "var(--brand-stone)", marginTop: 3 }}>
                     {p.trade} · {p.location}
                   </p>
                   <p
@@ -384,26 +400,13 @@ export default function LandingPage() {
                       fontSize: 13,
                       fontWeight: 600,
                       color: "var(--brand-fern)",
-                      marginTop: 8,
+                      marginTop: 10,
                     }}
                   >
                     ↗ {p.result}
                   </p>
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      fontSize: 12,
-                      color: "var(--brand-ink)",
-                      marginTop: 6,
-                      display: "inline-block",
-                    }}
-                  >
-                    View site →
-                  </a>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -442,7 +445,7 @@ export default function LandingPage() {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="tel:+10000000000"
+              href="tel:+12242146191"
               className="inline-flex items-center gap-2 rounded-full transition-transform hover:-translate-y-0.5"
               style={{
                 fontSize: 15,
