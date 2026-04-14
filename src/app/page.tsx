@@ -25,22 +25,22 @@ const BENEFITS = [
   {
     icon: Search,
     title: "Show up when they search",
-    desc: "Someone Googles \"roofer near me\" — you show up. We build sites that rank for the searches that actually bring jobs.",
+    desc: "Someone Googles \"roofer near me\" — you show up. We handle your website, Google Business profile, and local SEO so you rank where it counts.",
   },
   {
     icon: Phone,
     title: "Phone rings. Period.",
-    desc: "Every page is built to get the phone ringing. Click-to-call, contact forms, clear CTAs. No fluff.",
+    desc: "Website, Google Maps, review pages — everything we touch is built to get the phone ringing. Click-to-call, contact forms, clear CTAs.",
   },
   {
     icon: Star,
-    title: "Your reviews, front and center",
-    desc: "Your Google reviews, right on your site. People trust other customers — we make sure they see yours first.",
+    title: "Your reputation, managed",
+    desc: "Google reviews on your site, optimized Google Business profile, and a presence that builds trust before they even call.",
   },
   {
     icon: Hammer,
     title: "Built for trades. Only trades.",
-    desc: "No cookie-cutter templates. This is all we do, so we know exactly what your customers are looking for.",
+    desc: "We only work with trades in the Chicagoland area. No dentists, no restaurants. Just local contractors who want more jobs — that's all we know, and we're good at it.",
   },
 ];
 
@@ -107,7 +107,22 @@ const PORTFOLIO = [
     location: "Wonder Lake, IL",
     result: "Live site in 3 days — referrals already coming in",
     url: "https://robertsexteriorservices.com",
+    image: "https://images.unsplash.com/photo-1632759145351-1d592919f522?w=800&q=80&auto=format",
   },
+  {
+    name: "Raudel Serna Plumbing",
+    trade: "Plumber",
+    location: "Lake County, IL",
+    result: "Google Business optimized — calls up 40% in first month",
+    url: "https://raudel-serna-plumbing.vercel.app",
+    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&q=80&auto=format",
+  },
+];
+
+const HERO_IMAGES = [
+  { src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&auto=format", alt: "Construction worker on roof" },
+  { src: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80&auto=format", alt: "Plumber at work" },
+  { src: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80&auto=format", alt: "Electrician working" },
 ];
 
 const TESTIMONIALS = [
@@ -467,7 +482,7 @@ export default function LandingPage() {
             }}
           >
             <span style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "var(--brand-terracotta-soft)" }} />
-            Websites for trades — Gurnee + Lake County
+            Chicagoland&apos;s online partner for local trades
           </span>
 
           <h1
@@ -480,21 +495,22 @@ export default function LandingPage() {
               marginTop: 22,
             }}
           >
-            Websites that get{" "}
+            Boost your online presence.{" "}
             <span className="marker-underline italic" style={{ fontWeight: 500 }}>
-              the phone ringing
+              Book more jobs.
             </span>
-            .
           </h1>
 
           <p
             className="mx-auto max-w-2xl text-white/75"
             style={{ fontSize: 17, lineHeight: 1.65, marginTop: 22, fontWeight: 400 }}
           >
-            Hey — I&apos;m Steven. I build sites for roofers, plumbers, electricians, and
-            every trade in between. I&apos;ll put together a demo site for your business{" "}
-            <span className="text-white">before you pay a dime</span>. If you like it,
-            we tweak till it&apos;s yours. If not, no hard feelings.
+            Hey — I&apos;m Steven, based right here in Gurnee. I only work with
+            trades in the Chicagoland area — roofers, plumbers, electricians, HVAC,
+            you name it. I&apos;ll get your business showing up on Google, looking
+            professional, and actually getting calls.{" "}
+            <span className="text-white">I&apos;ll show you what it looks like before you pay a dime</span>.
+            Not happy? No hard feelings — we&apos;re neighbors.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -512,7 +528,7 @@ export default function LandingPage() {
                   "0 1px 0 rgba(120, 40, 0, 0.6), 0 12px 32px -12px rgba(194, 65, 12, 0.7)",
               }}
             >
-              Build me a free demo
+              See what we&apos;d build you — free
               <ArrowRight size={18} />
             </a>
             <a
@@ -552,6 +568,28 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ─────────────── TRADES IMAGE STRIP ─────────────── */}
+      <section className="overflow-hidden" style={{ backgroundColor: "var(--brand-cream)" }}>
+        <div className="mx-auto grid max-w-6xl grid-cols-3 gap-1" style={{ padding: "2px 0" }}>
+          {HERO_IMAGES.map((img) => (
+            <div key={img.alt} className="relative" style={{ height: 220, overflow: "hidden" }}>
+              <img
+                src={img.src}
+                alt={img.alt}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(to bottom, rgba(27,37,89,0.15) 0%, rgba(27,37,89,0.4) 100%)",
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ─────────────── STEVEN'S NOTE ─────────────── */}
       <section style={{ padding: "72px 24px" }}>
         <div className="mx-auto max-w-3xl">
@@ -580,10 +618,11 @@ export default function LandingPage() {
                 fontWeight: 400,
               }}
             >
-              Too many great contractors have no website — or one that
-              doesn&apos;t do them justice. I only work with trades because I
-              know what actually works for your customers. I&apos;ll build you
-              a demo for free. No pressure, no commitment.
+              I grew up around trades guys in Lake County. I know you&apos;re
+              great at what you do — but when someone Googles &ldquo;roofer near me&rdquo;
+              and you don&apos;t show up, that job goes to someone else. I fix that.
+              Website, Google Business, SEO — the whole thing. And I only work with
+              local trades in Chicagoland, so I actually understand your business.
             </p>
             <div className="mt-6 flex items-center gap-3">
               <div
@@ -612,7 +651,7 @@ export default function LandingPage() {
                   Steven — Capstone Studios
                 </p>
                 <p style={{ fontSize: 12, color: "var(--brand-stone)" }}>
-                  Gurnee, IL · Local + personal
+                  Gurnee, IL · Only Chicagoland trades
                 </p>
               </div>
             </div>
@@ -766,7 +805,7 @@ export default function LandingPage() {
                 color: "var(--brand-charcoal)",
               }}
             >
-              Every website includes
+              Every plan includes
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -872,7 +911,7 @@ export default function LandingPage() {
       <section id="work" style={{ padding: "88px 24px" }}>
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
-            <span className="sticker">Recent builds</span>
+            <span className="sticker">Client results</span>
             <h2
               className="font-display mt-4"
               style={{
@@ -882,11 +921,11 @@ export default function LandingPage() {
                 color: "var(--brand-charcoal)",
               }}
             >
-              Real sites, real{" "}
-              <span className="marker-underline italic">phone calls</span>.
+              Real clients, real{" "}
+              <span className="marker-underline italic">results</span>.
             </h2>
           </div>
-          <div className="mx-auto grid max-w-md grid-cols-1 gap-6">
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
             {PORTFOLIO.map((project) => (
               <div
                 key={project.name}
@@ -896,30 +935,35 @@ export default function LandingPage() {
                   borderColor: "var(--brand-sand)",
                 }}
               >
-                <div
-                  className="texture-grain relative flex items-center justify-center"
-                  style={{
-                    height: 200,
-                    background:
-                      "linear-gradient(135deg, var(--brand-ink) 0%, var(--brand-ink-deep) 100%)",
-                  }}
-                >
-                  <Globe size={44} color="rgba(255, 253, 248, 0.18)" />
+                <div className="relative" style={{ height: 240, overflow: "hidden" }}>
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background: "linear-gradient(to top, rgba(27,37,89,0.7) 0%, transparent 50%)",
+                    }}
+                  />
                   <span
                     className="absolute sticker"
                     style={{
                       top: 14,
                       left: 14,
-                      backgroundColor: "rgba(255, 253, 248, 0.12)",
-                      borderColor: "rgba(255, 253, 248, 0.2)",
+                      backgroundColor: "rgba(255, 253, 248, 0.15)",
+                      borderColor: "rgba(255, 253, 248, 0.25)",
                       color: "var(--brand-cream)",
                       boxShadow: "none",
+                      backdropFilter: "blur(8px)",
                     }}
                   >
                     {project.trade}
                   </span>
                 </div>
-                <div className="p-5">
+                <div className="p-6">
                   <h3
                     className="font-display"
                     style={{
@@ -951,9 +995,77 @@ export default function LandingPage() {
                   >
                     <span style={{ fontSize: 14 }}>↗</span> {project.result}
                   </p>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-1.5 rounded-full transition-transform hover:-translate-y-0.5"
+                    style={{
+                      fontSize: 12,
+                      fontWeight: 600,
+                      padding: "8px 16px",
+                      backgroundColor: "var(--brand-ink)",
+                      color: "#FFFDF8",
+                      textDecoration: "none",
+                    }}
+                  >
+                    View live site <ArrowRight size={14} />
+                  </a>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Featured showcase: Robert's Exterior Services */}
+          <div
+            className="mx-auto mt-14 max-w-4xl overflow-hidden rounded-3xl border"
+            style={{ borderColor: "var(--brand-sand)", backgroundColor: "var(--brand-cream-warm)" }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div className="relative" style={{ minHeight: 320 }}>
+                <img
+                  src="https://images.unsplash.com/photo-1632759145351-1d592919f522?w=900&q=80&auto=format"
+                  alt="Robert's Exterior Services — roofing work"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", position: "absolute", inset: 0 }}
+                />
+              </div>
+              <div className="flex flex-col justify-center p-8 sm:p-10">
+                <span className="sticker mb-4" style={{ alignSelf: "flex-start" }}>Featured project</span>
+                <h3
+                  className="font-display"
+                  style={{ fontSize: 28, fontWeight: 500, color: "var(--brand-charcoal)", letterSpacing: "-0.02em" }}
+                >
+                  Robert&apos;s Exterior Services
+                </h3>
+                <p style={{ fontSize: 13, color: "var(--brand-stone)", marginTop: 4 }}>
+                  Roofer — Wonder Lake, IL
+                </p>
+                <p style={{ fontSize: 14, color: "var(--brand-charcoal)", lineHeight: 1.65, marginTop: 16 }}>
+                  Robert had no online presence — just word of mouth. We built him a full website,
+                  optimized his Google Business profile, and set up local SEO. Within a week he was
+                  getting referrals from the site and showing up in local search.
+                </p>
+                <div className="mt-6 flex items-center gap-4">
+                  <a
+                    href="https://robertsexteriorservices.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full transition-transform hover:-translate-y-0.5"
+                    style={{
+                      fontSize: 13,
+                      fontWeight: 600,
+                      padding: "10px 20px",
+                      backgroundColor: "var(--brand-terracotta)",
+                      color: "#FFFDF8",
+                      textDecoration: "none",
+                      boxShadow: "0 1px 0 rgba(120,40,0,0.6), 0 8px 20px -8px rgba(194,65,12,0.5)",
+                    }}
+                  >
+                    See the live site <ArrowRight size={14} />
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1062,9 +1174,9 @@ export default function LandingPage() {
             className="mx-auto mt-6 max-w-lg text-white/75"
             style={{ fontSize: 16, lineHeight: 1.65 }}
           >
-            Shoot me a text, a call, or an email. I&apos;ll put together a
-            demo site for your business and send it over. Takes a couple days.
-            Zero cost to see it.
+            Shoot me a text, a call, or an email. I&apos;ll show you exactly
+            what your online presence could look like — website, Google, SEO, the works.
+            Takes a couple days. Zero cost to see it.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
