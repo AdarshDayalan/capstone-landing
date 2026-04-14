@@ -62,31 +62,10 @@ export default function RootLayout({
                 </span>
               </Link>
 
-              <nav className="flex items-center gap-5">
-                <a
-                  href="#pricing"
-                  className="hidden text-[color:var(--brand-ink)] transition-colors hover:text-[color:var(--brand-terracotta)] sm:inline"
-                  style={{ fontSize: 13, fontWeight: 500 }}
-                >
-                  Pricing
-                </a>
-                <a
-                  href="#services"
-                  className="hidden text-[color:var(--brand-ink)] transition-colors hover:text-[color:var(--brand-terracotta)] sm:inline"
-                  style={{ fontSize: 13, fontWeight: 500 }}
-                >
-                  What you get
-                </a>
-                <a
-                  href="#work"
-                  className="hidden text-[color:var(--brand-ink)] transition-colors hover:text-[color:var(--brand-terracotta)] sm:inline"
-                  style={{ fontSize: 13, fontWeight: 500 }}
-                >
-                  Work
-                </a>
+              <nav className="flex items-center gap-4">
                 <a
                   href="tel:+10000000000"
-                  className="hidden items-center gap-1.5 text-[color:var(--brand-stone)] transition-colors hover:text-[color:var(--brand-ink)] md:inline-flex"
+                  className="hidden items-center gap-1.5 text-[color:var(--brand-stone)] transition-colors hover:text-[color:var(--brand-ink)] sm:inline-flex"
                   style={{ fontSize: 13, fontWeight: 500 }}
                 >
                   <Phone size={14} strokeWidth={2} />
